@@ -1,0 +1,34 @@
+
+body{background-color: cyan;}
+
+#image-welcome{
+    width: 1130px;
+    height:400px;
+    margin-left: 100px;margin-right: 100px}
+
+table{margin-right: 120px;margin-left: 120px;margin-bottom: 60px; }
+
+td,th{font-size:25px; font-family:cursive, Times, "Times New Roman" ;
+    width: 250px;text-align: center;background-color:rgb(169, 215, 233); }
+
+
+    h1{font-family: cursive, Times, "Times New Roman", serif;color:rgb(30, 11, 180); text-align:center;}
+    
+    
+.unit-price{font-size: 30px; }
+
+         
+
+     .product-image{  display: block;
+            margin-left: auto;
+            margin-right: auto ;
+            width: 90px; }     
+
+   
+    
+           .like-btn{font-size: xx-large; cursor: pointer;}
+
+            .quantity{font-size:1.5em;font-size: x-large;}
+            .plus-btn,.minus-btn{cursor:pointer;font-size: x-large;}
+            .remove-btn{font-size: x-large; cursor: pointer;color:rgb(15, 7, 61)}
+           

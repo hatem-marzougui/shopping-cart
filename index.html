@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+
+	  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <!-- CSS file  --> <link rel="stylesheet" href="css/style.css">
+      
+      <!-- font-awesome --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" />
+      </head>
+
+
+     <body>
+<!-- Image and text -->
+
+
+
+        <img id="image-welcome" src="res/shoping.jpg"/ alt="welcome image">
+
+        <!--totalprice-division-->
+        <h1> Total price: <span class="total-price">0</span> $</h1>
+
+
+      <!--table   -->
+        <table>
+            <tr>
+                <th class="table-head">Like </th>
+                <th class="table-head">Product</th>
+                <th class="table-head">Quantity</th>
+                <th class="table-head">Price</th>
+                <th class="table-head">Remove</th>
+            </tr>
+            
+            <tr >
+                <td>
+                    <i class="fas fa-heart like-btn"> 
+               </td>
+                
+                <td> <img class="product-image" src="res/glasses.png"/ alt="glasses image"></td>
+
+                <td class="quantity-cell">  
+                    <i class="fas fa-minus mr-1 minus-btn"></i>
+
+                    <span class="quantity">0</span>
+                   
+                    <i class="fas fa-plus ml-1 plus-btn"></i>
+
+                <td><span class="unit-price">79 </span> $</td>
+
+                <td>
+                    <i class="fa fa-trash remove-btn" ></i></td>    
+            </tr>
+
+
+
+
+
+            <tr>
+                <td> 
+                    <i class="fas fa-heart like-btn">
+               </td>
+                <td> <img class="product-image" src="res/watch.png"/ alt="watch image"></td>
+
+                <td class="quantity-cell">  
+                    <i class="fas fa-minus mr-1 minus-btn"></i>
+
+                    <span class="quantity">0</span>
+                   
+                    <i class="fas fa-plus ml-1 plus-btn"></i>
+                </td>
+                <td><span class="unit-price">109 </span>$ </td>
+
+                <td>
+                    <i class="fa fa-trash remove-btn"></i>   
+            </tr>
+
+
+
+            <tr>
+                <td>
+                    <i class="fas fa-heart like-btn">
+                </td>
+                <td> <img class="product-image" src="res/cap.png"/ alt="cap image"></td>
+
+                <td class="quantity-cell">  
+                    <i class="fas fa-minus mr-1 minus-btn"></i>
+
+                    <span class="quantity">0</span>
+                   
+                    <i class="fas fa-plus ml-1 plus-btn"></i>
+
+                </td>
+
+                <td><span class="unit-price">139 </span>$</td>
+
+                <td>
+                    <i class="fa fa-trash remove-btn"></i></td>   
+            </tr>
+
+
+
+            <tr>
+                <td>
+                    <i class="fas fa-heart like-btn">
+                </td>
+                <td> <img class="product-image" src="res/parfum.png"/ alt="parfum image"></td>
+
+                <td class="quantity-cell">  
+                        
+                    <i class="fas fa-minus mr-1 minus-btn"></i>
+
+                        <span class="quantity">0</span>
+                       
+                    <i class="fas fa-plus ml-1 plus-btn"></i>
+          
+                </td>
+
+                <td><span class="unit-price">160 </span>$ </td>
+
+                <td>
+                    <i class="fa fa-trash remove-btn" ></i></td>    
+            </tr>
+
+         
+
+
+
+
+        </table>
+
+
+       <script language="javascript">
+
+
+
+const quantity=Array.from(document.querySelectorAll(".quantity"));
+const price=Array.from(document.querySelectorAll(".unit-price"));
+const totalPrice = document.querySelector(".total-price");
+const removeBtn = Array.from(document.querySelectorAll(".remove-btn"));
+
+function changeColor(el) {
+  if (el.target.style.color !== "red") { el.target.style.color = "red"; }
+   else {el.target.style.color = "black";} }
+
+   function increment(el) {
+  el.target.previousElementSibling.innerText =  Number(el.target.previousElementSibling.innerText) + 1;
+ updateTotal();
+                          }
+
+function decrement(el) {
+    if(Number(el.target.nextElementSibling.innerText)!==0){
+    el.target.nextElementSibling.innerText =
+    Number(el.target.nextElementSibling.innerText) - 1 }
+    updateTotal();    }
+
+
+
+
+function updateTotal() {
+  let total = 0;
+  for (let i = 0; i < quantity.length; i++) {
+    total = total + quantity[i].innerText * price[i].innerText;}
+  totalPrice.innerText = total;
+  }
+
+  function Total (){
+    var total = 0 ; 
+    prix = document.getElementsByClassName('total-price')
+    for(var i=0 ; i<prix.length;i++) {
+        var price = prix[i].innerHTML ;
+        price = Number(price) ;
+        total += price ;   }
+       }
+    
+
+function removeElement(el) {
+    console.log(el.target);
+    let index=(removeBtn.indexOf(el.target))
+  el.target.parentElement.parentElement.remove();
+  
+  quantity[index].innerText = 0; 
+  updateTotal();
+}
+
+
+
+var heart = document.querySelectorAll('.like-btn');
+for (let i = 0; i < heart.length; i++) {heart[i].addEventListener("click", changeColor);}
+
+var plus=document.querySelectorAll('.plus-btn');
+for (let i = 0; i < plus.length; i++) {plus[i].addEventListener("click", increment);}
+
+var minus=document.querySelectorAll('.minus-btn');
+for (let i = 0; i < minus.length; i++) {minus[i].addEventListener("click", decrement);}
+
+var remove=document.querySelectorAll('.remove-btn');
+for ( var i = 0; i < remove.length; i++) {removeBtn[i].addEventListener("click", removeElement);}
+
+
+
+
+       </script>
+
+     </body>
+</html>
